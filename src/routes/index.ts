@@ -4,6 +4,7 @@ import category from "../controller/category";
 import products from "../controller/products";
 import services from "../controller/services";
 import sub_services from "../controller/sub_services";
+import blogs from "../controller/blogs";
 
 const router=Router()
 
@@ -41,6 +42,13 @@ router.get("/sub_services/:id",sub_services.GetId);
 router.post("/sub_services",sub_services.Post);
 router.put("/sub_services/:id",sub_services.Put);
 router.delete("/sub_services/:id",sub_services.Delete);
+
+// blogs
+router.get("/blogs",blogs.Get);
+router.get("/blogs/:id",blogs.GetId);
+router.post("/blogs",blogs.Post);
+router.put("/blogs/:id",blogs.Put);
+router.delete("/blogs/:id",blogs.Delete);
 
 
 export default router;

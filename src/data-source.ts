@@ -5,6 +5,7 @@ import { CategoryEntity } from "./entities/category"
 import { ProductsEntity } from "./entities/products"
 import { ServicesEntity } from "./entities/services"
 import { SubSevicesEntity } from "./entities/sub_services"
+import { BlogsEntity } from "./entities/blogs"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -15,7 +16,7 @@ export const AppDataSource = new DataSource({
     database: "nema_b",
     synchronize: true,
     logging: false,
-    entities: [FormEntity,CategoryEntity,ProductsEntity,ServicesEntity,SubSevicesEntity],
+    entities: [FormEntity,CategoryEntity,ProductsEntity,ServicesEntity,SubSevicesEntity,BlogsEntity],
     migrations: [],
     subscribers: [],
 })
