@@ -22,9 +22,9 @@ class ProductsController {
 
     public async Post(req: Request, res: Response) {
         try {
-            const { title_uz,title_ru,title_en,description_uz,description_ru,description_en,img1,img2,img3,category } = req.body
+            const { title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,img1,img2,img3,category } = req.body
 
-            const products = await AppDataSource.getRepository(ProductsEntity ).createQueryBuilder().insert().into(ProductsEntity ).values({ title_uz,title_ru,title_en,description_uz,description_ru,description_en,img1,img2,img3,category }).returning("*").execute()
+            const products = await AppDataSource.getRepository(ProductsEntity ).createQueryBuilder().insert().into(ProductsEntity ).values({ title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,img1,img2,img3,category }).returning("*").execute()
 
             res.json({
                 status: 201,
@@ -39,11 +39,11 @@ class ProductsController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { title_uz,title_ru,title_en,description_uz,description_ru,description_en,img1,img2,img3,category  } = req.body
+            const { title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,img1,img2,img3,category  } = req.body
             const { id } = req.params
 
             const products = await AppDataSource.getRepository(ProductsEntity ).createQueryBuilder().update(ProductsEntity )
-                .set({ title_uz,title_ru,title_en,description_uz,description_ru,description_en,img1,img2,img3,category  })
+                .set({ title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,img1,img2,img3,category  })
                 .where({ id })
                 .returning("*")
                 .execute()

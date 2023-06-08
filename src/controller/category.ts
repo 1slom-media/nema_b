@@ -22,9 +22,9 @@ class CategoryController {
 
     public async Post(req: Request, res: Response) {
         try {
-            const { category_name_uz,category_name_ru,category_name_en } = req.body
+            const { category_name_uz,category_name_ru,category_name_en,category_name_tr } = req.body
 
-            const category = await AppDataSource.getRepository(CategoryEntity ).createQueryBuilder().insert().into(CategoryEntity ).values({ category_name_uz,category_name_ru,category_name_en }).returning("*").execute()
+            const category = await AppDataSource.getRepository(CategoryEntity ).createQueryBuilder().insert().into(CategoryEntity ).values({ category_name_uz,category_name_ru,category_name_en,category_name_tr}).returning("*").execute()
 
             res.json({
                 status: 201,
@@ -39,11 +39,11 @@ class CategoryController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { category_name_uz,category_name_ru,category_name_en  } = req.body
+            const { category_name_uz,category_name_ru,category_name_en,category_name_tr } = req.body
             const { id } = req.params
 
             const category = await AppDataSource.getRepository(CategoryEntity ).createQueryBuilder().update(CategoryEntity )
-                .set({ category_name_uz,category_name_ru,category_name_en  })
+                .set({ category_name_uz,category_name_ru,category_name_en,category_name_tr })
                 .where({ id })
                 .returning("*")
                 .execute()

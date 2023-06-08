@@ -15,9 +15,9 @@ class BlogsController {
 
     public async Post(req: Request, res: Response) {
         try {
-            const { title_uz,title_ru,title_en,description_uz,description_ru,description_en,title2_uz,title2_ru,title2_en,image } = req.body
+            const { title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,title2_uz,title2_ru,title2_en,title2_tr,image } = req.body
 
-            const blogs = await AppDataSource.getRepository(BlogsEntity ).createQueryBuilder().insert().into(BlogsEntity ).values({title_uz,title_ru,title_en,description_uz,description_ru,description_en,title2_uz,title2_ru,title2_en,image }).returning("*").execute()
+            const blogs = await AppDataSource.getRepository(BlogsEntity ).createQueryBuilder().insert().into(BlogsEntity ).values({title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,title2_uz,title2_ru,title2_en,title2_tr,image  }).returning("*").execute()
 
             res.json({
                 status: 201,
@@ -32,11 +32,11 @@ class BlogsController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { title_uz,title_ru,title_en,description_uz,description_ru,description_en,title2_uz,title2_ru,title2_en,image  } = req.body
+            const { title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,title2_uz,title2_ru,title2_en,title2_tr,image   } = req.body
             const { id } = req.params
 
             const blogs = await AppDataSource.getRepository(BlogsEntity ).createQueryBuilder().update(BlogsEntity )
-                .set({ title_uz,title_ru,title_en,description_uz,description_ru,description_en,title2_uz,title2_ru,title2_en,image  })
+                .set({ title_uz,title_ru,title_en,title_tr,description_uz,description_ru,description_en,description_tr,title2_uz,title2_ru,title2_en,title2_tr,image   })
                 .where({ id })
                 .returning("*")
                 .execute()

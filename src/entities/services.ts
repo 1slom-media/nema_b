@@ -20,6 +20,10 @@ export class ServicesEntity {
     @IsString()
     services_name_en: string
 
+    @Column({ type: "varchar", length: 300,nullable:true })
+    @IsString()
+    services_name_tr: string
+
     @Column({ type: "text" })
     @IsString()
     image: string

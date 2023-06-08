@@ -22,9 +22,9 @@ class ServicesController {
 
     public async Post(req: Request, res: Response) {
         try {
-            const { services_name_uz,services_name_ru,services_name_en,image  } = req.body
+            const { services_name_uz,services_name_ru,services_name_en,services_name_tr,image  } = req.body
 
-            const services = await AppDataSource.getRepository(ServicesEntity ).createQueryBuilder().insert().into(ServicesEntity ).values({ services_name_uz,services_name_ru,services_name_en,image }).returning("*").execute()
+            const services = await AppDataSource.getRepository(ServicesEntity ).createQueryBuilder().insert().into(ServicesEntity ).values({ services_name_uz,services_name_ru,services_name_en,services_name_tr,image }).returning("*").execute()
 
             res.json({
                 status: 201,
@@ -39,11 +39,11 @@ class ServicesController {
 
     public async Put(req: Request, res: Response) {
         try {
-            const { services_name_uz,services_name_ru,services_name_en,image  } = req.body
+            const { services_name_uz,services_name_ru,services_name_en,services_name_tr,image  } = req.body
             const { id } = req.params
 
             const services = await AppDataSource.getRepository(ServicesEntity ).createQueryBuilder().update(ServicesEntity )
-                .set({ services_name_uz,services_name_ru,services_name_en,image  })
+                .set({ services_name_uz,services_name_ru,services_name_en,services_name_tr,image  })
                 .where({ id })
                 .returning("*")
                 .execute()

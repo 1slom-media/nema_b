@@ -19,6 +19,10 @@ export class BlogsEntity {
     @IsString()
     title_en: string
 
+    @Column({ type: "varchar",nullable:true })
+    @IsString()
+    title_tr: string
+
     @Column({ type: "text"})
     @IsString()
     description_uz: string
@@ -31,6 +35,10 @@ export class BlogsEntity {
     @IsString()
     description_en: string
 
+    @Column({ type: "text",nullable:true})
+    @IsString()
+    description_tr: string
+
     @Column({ type: "varchar" })
     @IsString()
     title2_uz: string
@@ -42,6 +50,10 @@ export class BlogsEntity {
     @Column({ type: "varchar" })
     @IsString()
     title2_en: string
+
+    @Column({ type: "varchar",nullable:true})
+    @IsString()
+    title2_tr: string
 
     @Column({ type: "text"})
     @IsString()

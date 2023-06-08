@@ -20,6 +20,10 @@ export class ProductsEntity {
     @IsString()
     title_en: string
 
+    @Column({ type: "varchar", length: 500,nullable:true })
+    @IsString()
+    title_tr: string
+
     @Column({ type: "text"})
     @IsString()
     description_uz: string
@@ -31,6 +35,10 @@ export class ProductsEntity {
     @Column({ type: "text"})
     @IsString()
     description_en: string
+
+    @Column({ type: "text",nullable:true})
+    @IsString()
+    description_tr: string
 
     @Column({ type: "text"})
     @IsString()
